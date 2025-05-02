@@ -11,7 +11,7 @@ void setup() {
   setupMotionSensor();
   setupBuzzer();
 
-  Serial.println("Sistema de segurança iniciado!");
+  Serial.println("Sistema de segurança iniciado.");
 }
 
 void loop() {

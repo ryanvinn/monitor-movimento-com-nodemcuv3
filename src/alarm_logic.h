@@ -5,33 +5,29 @@
 #include "motion_sensor.h"
 #include "buzzer.h"
 
-bool alarmActivated = true;
-unsigned long lastAlarm = 0;
+bool alarmSystemStatus = true;
+bool ringBuzzerStatus = false;
 
 void verifyAlarm() {
-	if (alarmActivated == false) {
-		noToneBuzzer();
-		return;
-	}
+	if (alarmSystemStatus == false) return;
 
-	bool motionDetected = readMotionSensor();
-
-	if ((motionDetected == true) && (millis() - lastAlarm > BUZZER_TIME)) {
-		lastAlarm = millis();
-		ringBuzzer();
-		Serial.println("!");
-	} else {
+	if (ringBuzzerStatus == true) ringBuzzer();
+	else {
 		noToneBuzzer();
-		Serial.println(".");
-	}
+		bool motionDetected = readMotionSensor();
+		if (motionDetected == true) {
+			ringBuzzerStatus = true;
+		} 
+	} 
 }
 
 void setAlarmStatus(bool status) {
-	alarmActivated = status;
+	if (status == false) noToneBuzzer();
+	alarmSystemStatus = status;
 }
 
 bool getAlarmStatus() {
-	return alarmActivated;
+	return alarmSystemStatus;
 }
 
 #endif
