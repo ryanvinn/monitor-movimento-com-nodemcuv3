@@ -22,8 +22,9 @@ void verifyAlarm() {
 }
 
 void setAlarmStatus(bool status) {
-	if (status == false) noToneBuzzer();
 	alarmSystemStatus = status;
+	ringBuzzerStatus = false;
+	noToneBuzzer();
 }
 
 bool getAlarmStatus() {

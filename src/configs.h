@@ -5,8 +5,8 @@
 const unsigned long BAUD_RATE = 9600;
 
 // Configurações WiFi
-const char* SSID = "computacao";
-const char* PASSWORD = "uasc@123";
+const char* SSID = "Elvis"; //"computacao";
+const char* PASSWORD = "N#m3#8SW8R#V"; //"uasc@123";
 
 // Definições dos pinos
 const int PIN_MOTION_SENSOR = 13; //D7
