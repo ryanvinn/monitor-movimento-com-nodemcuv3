@@ -1,13 +1,13 @@
-# Alarme simples com ESP8266
+# Monitor de movimento simples com placa NodeMCUv3
+Projeto simples de monitor de movimento com NodeMCUv3.
 
-Projeto de sistema de segurança simples com interface web e disparador de
-alarme.
+## Objetivo
+O sistema monitora movimentos no ambiente e, quando detecta um, dispara um sinal
+sonoro e indica, através de uma página web local, a situação do sistema. Através
+da página web também é possibilidado ligar e desligar o sistema.
 
-Adicionando a URL de placas do ESP8266
-arduino-cli config add board_manager.additional_urls http://arduino.esp8266.com/stable/package_esp8266com_index.json
+## Utilização
+Para utilizar o projeto, deve-se suprir os requisitos de hardware e software
+indicados no diretório `docs/` e compilar e escrever os códigos na placa,
+através dos scripts do diretório `scripts/`.
 
-Instalando a plataforma ESP8266
-arduino-cli core install esp8266:esp8266
-
-Listando as placas disponíveis para confirmar
-arduino-cli board listall
