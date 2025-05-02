@@ -1,16 +1,17 @@
 #include "src/configs.h"
 #include "src/alarm_logic.h"
-#include "src/sensors.h"
+#include "src/motion_sensor.h"
 #include "src/buzzer.h"
 
 void setup() {
-	Serial.begin(115200);
+	Serial.begin(BAUD_RATE);
   delay(1000);
+  Serial.println();
 
-  setupSensors();
+  setupMotionSensor();
   setupBuzzer();
 
-	Serial.println("Sistema de alarme iniciado!");
+  Serial.println("Sistema de segurança iniciado!");
 }
 
 void loop() {

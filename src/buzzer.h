@@ -5,20 +5,22 @@
 
 void setupBuzzer() {
 	pinMode(PIN_BUZZER, OUTPUT);
+	Serial.println("Buzzer configurado.");
 }
 
-void activateBuzzer() {
-	digitalWrite(PIN_BUZZER, HIGH);
+void toneBuzzer() {
+	tone(PIN_BUZZER, 250);
 }
 
-void deactivateBuzzer() {
-	digitalWrite(PIN_BUZZER, LOW);
+void noToneBuzzer() {
+	noTone(PIN_BUZZER);
 }
 
-void ringBuzzer(int duration) {
-	activateBuzzer();
-	delay(duration);
-	deactivateBuzzer();
+void ringBuzzer() {
+	toneBuzzer();
+	delay(400);
+	noToneBuzzer();
+	delay(100);
 }
 
 #endif

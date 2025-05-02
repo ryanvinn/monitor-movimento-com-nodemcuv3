@@ -2,32 +2,32 @@
 #define ALARM_H
 
 #include "config.h"
-#include "sensors.h"
+#include "motion_sensor.h"
 #include "buzzer.h"
 
 bool alarmActivated = true;
 unsigned long lastAlarm = 0;
 
 void verifyAlarm() {
-	if (alarmActivated == false) return;
+	if (alarmActivated == false) {
+		noToneBuzzer();
+		return;
+	}
 
 	bool motionDetected = readMotionSensor();
-	float distance = readDistanceSensor();
 
-	if (motionDetected || (distance > 0 && distance < ALARM_DIST)) {
-		if (millis() - lastAlarm > BUZZER_TIME) {
-			activateBuzzer();
-			lastAlarm = millis();
-			Serial.println("Alarme acionado!");
-		}
+	if ((motionDetected == true) && (millis() - lastAlarm > BUZZER_TIME)) {
+		lastAlarm = millis();
+		ringBuzzer();
+		Serial.println("!");
 	} else {
-		deactivateBuzzer();
+		noToneBuzzer();
+		Serial.println(".");
 	}
 }
 
 void setAlarmStatus(bool status) {
 	alarmActivated = status;
-	if (status == false) deactivateBuzzer();
 }
 
 bool getAlarmStatus() {
