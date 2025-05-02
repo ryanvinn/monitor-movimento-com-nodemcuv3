@@ -1,4 +1,4 @@
-## Mapeamento de pinos do ESP8266
+## Mapeamento de pinos utilizados
 
 | Componente   | Pino GPIO | Pino físico (NodeMCU v3) |
 |--------------|-----------|--------------------------|
