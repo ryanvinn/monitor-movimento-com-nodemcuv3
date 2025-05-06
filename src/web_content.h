@@ -1,6 +1,28 @@
 #ifndef WEB_CONTENT_H
 #define WEB_CONTENT_H
 
+/**
+ * @file web_content.h
+ * @brief Conteúdo HTML para interface web do sistema de alarme
+ * 
+ * Contém a página HTML principal com estilos CSS embutidos
+ * e placeholders para conteúdo dinâmico
+ */
+
+/**
+ * @brief Página HTML principal do sistema de alarme
+ *
+ * Página web responsiva com:
+ * - Exibição do status do alarme
+ * - Botão de controle do sistema
+ * - Estilos CSS embutidos
+ *
+ * @note Armazenado na memória PROGMEM para economizar RAM
+ * @note Utiliza placeholders para conteúdo dinâmico:
+ *       - %ALARM_STATUS% - Texto do status atual
+ *       - %BUTTON_COLOR% - Cor do botão (verde/vermelho)
+ *       - %BUTTON_TEXT% - Texto do botão (Ativar/Desativar)
+ */
 const char MAIN_PAGE[] PROGMEM = R"=====(
 <!DOCTYPE html>
 <html>
